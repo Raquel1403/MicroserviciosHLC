@@ -1,1 +1,12 @@
-spring.application.name=citas
+server:
+  port: 8086
+spring:
+  application:
+    name:citas
+main:
+  allow-bean-definition-overriding: true
+data:
+  mongodb:
+    database: citas_db
+    host: mongo_DB
+    port: 27017
