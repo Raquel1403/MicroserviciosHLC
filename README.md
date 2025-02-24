@@ -6,9 +6,11 @@ Este microservicio gestiona las citas de pacientes con psicólogos. Permite real
 ## 💽 Endpoints de la API
 La API corre en `http://localhost:8086/api/v1/citas`
 
-### ➕ Crear una nueva cita
+### ➕ Crear nuevas citas
 **Método:** `POST`
+
 **URL:** `http://localhost:8086/api/v1/citas/add`
+
 **Headers:** `Content-Type: application/json`
 
 #### 📌 Ejemplos de cuerpo (JSON):
@@ -58,12 +60,14 @@ La API corre en `http://localhost:8086/api/v1/citas`
 
 ### 🔍 Obtener todas las citas
 **Método:** `GET`
+
 **URL:** `http://localhost:8086/api/v1/citas`
 
 ---
 
 ### 🔍 Obtener una cita por ID
 **Método:** `GET`
+
 **URL:** `http://localhost:8086/api/v1/citas/{id}`
 
 📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/1`
@@ -72,6 +76,7 @@ La API corre en `http://localhost:8086/api/v1/citas`
 
 ### ✏️ Actualizar una cita
 **Método:** `PUT`
+
 **URL:** `http://localhost:8086/api/v1/citas/{id}`
 
 📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/1`
