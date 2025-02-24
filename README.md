@@ -106,6 +106,39 @@ La API corre en `http://localhost:8086/api/v1/citas`
 
 📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/2`
 
+---
 
 ### Swagger
 `http://localhost:8086/swagger-ui/index.html`
+
+---
+
+### Test
+Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc para simular peticiones HTTP y validar respuestas sin necesidad de un servidor real.
+
+📌 **¿Qué hacen estas pruebas?**
+Cada prueba verifica un endpoint específico del controlador CitaController:
+
+`testObtenerTodasLasCitas()`
+
+Simula una petición `GET /api/v1/citas`.
+Mockea citaService.findAll() para devolver una lista vacía.
+Verifica que el estado HTTP es 200 OK y la respuesta es [] (JSON vacío).
+
+`testObtenerCitaPorId()`
+
+Simula `GET /api/v1/citas/1`.
+Mockea citaService.findById("1") para devolver una cita específica.
+Comprueba que el estado es 200 OK y que la cita tiene el ID correcto.
+
+`testCrearCita()`
+
+Simula `POST /api/v1/citas` enviando un JSON con los datos de la cita.
+Mockea citaService.save() para devolver la cita creada.
+Verifica que la respuesta es 200 OK y el JSON de respuesta tiene el ID esperado.
+
+`testEliminarCita()`
+
+Simula `DELETE /api/v1/citas/1`.
+Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
+Comprueba que la respuesta es 200 OK.
