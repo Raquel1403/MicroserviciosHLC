@@ -1,17 +1,18 @@
-﻿# MicroserviciosHLC
+# MicroserviciosHLC
 
- Microservicio de Citas 
+## Microservicio de Citas
 Este microservicio gestiona las citas de pacientes con psicólogos. Permite realizar operaciones CRUD sobre las citas almacenadas en MongoDB.
 
-📡 Endpoints de la API
-La API corre en http://localhost:8085/api/v1/citas
+## 💽 Endpoints de la API
+La API corre en `http://localhost:8086/api/v1/citas`
 
-➕ Crear una nueva cita
-Método: POST
-URL: http://localhost:8086/api/v1/citas/add
-Headers: Content-Type: application/json
+### ➕ Crear una nueva cita
+**Método:** `POST`
+**URL:** `http://localhost:8086/api/v1/citas/add`
+**Headers:** `Content-Type: application/json`
 
-📌 Ejemplos de cuerpo (JSON):
+#### 📌 Ejemplos de cuerpo (JSON):
+```json
 {
     "id": 1,
     "pacienteID": "789",
@@ -23,7 +24,9 @@ Headers: Content-Type: application/json
     "especialidad": "Terapia Cognitiva",
     "notificacionesEnviadas": []
 }
+```
 
+```json
 {
     "id": 2,
     "pacienteID": "111",
@@ -35,7 +38,9 @@ Headers: Content-Type: application/json
     "especialidad": "Psicoterapia Infantil",
     "notificacionesEnviadas": []
 }
+```
 
+```json
 {
     "id": "3",
     "pacienteID": "555",
@@ -47,23 +52,34 @@ Headers: Content-Type: application/json
     "especialidad": "Terapia de Pareja",
     "notificacionesEnviadas": []
 }
+```
 
-🔍 Obtener todas las citas
-Método: GET
-URL: http://localhost:8086/api/v1/citas
+---
 
-🔍 Obtener una cita por ID
-Método: GET
-URL: http://localhost:8086/api/v1/citas/{id}
-📌 Ejemplo: http://localhost:8086/api/v1/citas/1
+### 🔍 Obtener todas las citas
+**Método:** `GET`
+**URL:** `http://localhost:8086/api/v1/citas`
 
+---
 
-✏️ Actualizar una cita
-Método: PUT
-URL: http://localhost:8086/api/v1/citas/{id}
-📌 Ejemplo: http://localhost:8086/api/v1/citas/1
-Headers: Content-Type: application/json
-📌 Ejemplo de cuerpo (JSON):
+### 🔍 Obtener una cita por ID
+**Método:** `GET`
+**URL:** `http://localhost:8086/api/v1/citas/{id}`
+
+📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/1`
+
+---
+
+### ✏️ Actualizar una cita
+**Método:** `PUT`
+**URL:** `http://localhost:8086/api/v1/citas/{id}`
+
+📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/1`
+
+**Headers:** `Content-Type: application/json`
+
+#### 📌 Ejemplo de cuerpo (JSON):
+```json
 {
     "id": "1",
     "pacienteID": "789",
@@ -75,12 +91,13 @@ Headers: Content-Type: application/json
     "especialidad": "Terapia Cognitiva",
     "notificacionesEnviadas": ["Email enviado"]
 }
+```
 
-🗑️ Eliminar una cita
-Método: DELETE
-URL: http://localhost:8086/api/v1/citas/{id}
-📌 Ejemplo: http://localhost:8086/api/v1/citas/2
+---
 
+### 🗑️ Eliminar una cita
+**Método:** `DELETE`
+**URL:** `http://localhost:8086/api/v1/citas/{id}`
 
-
+📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/2`
 
