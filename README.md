@@ -119,25 +119,25 @@ Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc p
 📌 **¿Qué hacen estas pruebas?**
 Cada prueba verifica un endpoint específico del controlador CitaController:
 
-`testObtenerTodasLasCitas()`
+**`testObtenerTodasLasCitas()`**
 
 Simula una petición `GET /api/v1/citas`.
 Mockea citaService.findAll() para devolver una lista vacía.
 Verifica que el estado HTTP es 200 OK y la respuesta es [] (JSON vacío).
 
-`testObtenerCitaPorId()`
+**`testObtenerCitaPorId()`**
 
 Simula `GET /api/v1/citas/1`.
 Mockea citaService.findById("1") para devolver una cita específica.
 Comprueba que el estado es 200 OK y que la cita tiene el ID correcto.
 
-`testCrearCita()`
+**`testCrearCita()`**
 
 Simula `POST /api/v1/citas` enviando un JSON con los datos de la cita.
 Mockea citaService.save() para devolver la cita creada.
 Verifica que la respuesta es 200 OK y el JSON de respuesta tiene el ID esperado.
 
-`testEliminarCita()`
+**`testEliminarCita()`**
 
 Simula `DELETE /api/v1/citas/1`.
 Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
