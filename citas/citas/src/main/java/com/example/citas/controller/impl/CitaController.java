@@ -37,7 +37,7 @@ public class CitaController implements CitaAPI {
 
     @Operation(summary = "Crear una nueva cita")
     @Override
-    @PostMapping("/citas/add")
+    @PostMapping("/citas")
     public CitaDto save(@RequestBody CitaDto citaDto) {return citaService.save(citaDto);}
 
     @Operation(summary = "Modificar una cita existente")

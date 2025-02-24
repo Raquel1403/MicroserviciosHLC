@@ -14,7 +14,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API de Citas")
+                        .title("API de Citas Psicológicas")
                         .version("1.0")
                         .description("Microservicio para la gestión de citas médicas")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")))
