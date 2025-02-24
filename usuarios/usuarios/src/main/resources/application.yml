@@ -1,1 +1,12 @@
-spring.application.name=usuarios
+server:
+  port: 8085
+spring:
+  application:
+    name:usuariosService
+main:
+  allow-bean-definition-overriding: true
+data:
+  mongodb:
+    database: usuariosservice_db
+    host: mongo_DB # Usa el nombre del contenedor en Docker en lugar de la IP
+    port: 27017
