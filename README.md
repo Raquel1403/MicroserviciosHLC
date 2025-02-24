@@ -106,3 +106,6 @@ La API corre en `http://localhost:8086/api/v1/citas`
 
 📌 **Ejemplo:** `http://localhost:8086/api/v1/citas/2`
 
+
+### Swagger
+`http://localhost:8086/swagger-ui/index.html`
