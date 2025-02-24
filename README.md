@@ -8,7 +8,7 @@ La API corre en http://localhost:8085/api/v1/citas
 
 ➕ Crear una nueva cita
 Método: POST
-URL: http://localhost:8085/api/v1/citas/add
+URL: http://localhost:8086/api/v1/citas/add
 Headers: Content-Type: application/json
 
 📌 Ejemplos de cuerpo (JSON):
@@ -50,18 +50,18 @@ Headers: Content-Type: application/json
 
 🔍 Obtener todas las citas
 Método: GET
-URL: http://localhost:8085/api/v1/citas
+URL: http://localhost:8086/api/v1/citas
 
 🔍 Obtener una cita por ID
 Método: GET
-URL: http://localhost:8085/api/v1/citas/{id}
-📌 Ejemplo: http://localhost:8085/api/v1/citas/1
+URL: http://localhost:8086/api/v1/citas/{id}
+📌 Ejemplo: http://localhost:8086/api/v1/citas/1
 
 
 ✏️ Actualizar una cita
 Método: PUT
-URL: http://localhost:8085/api/v1/citas/{id}
-📌 Ejemplo: http://localhost:8085/api/v1/citas/1
+URL: http://localhost:8086/api/v1/citas/{id}
+📌 Ejemplo: http://localhost:8086/api/v1/citas/1
 Headers: Content-Type: application/json
 📌 Ejemplo de cuerpo (JSON):
 {
@@ -78,8 +78,8 @@ Headers: Content-Type: application/json
 
 🗑️ Eliminar una cita
 Método: DELETE
-URL: http://localhost:8085/api/v1/citas/{id}
-📌 Ejemplo: http://localhost:8085/api/v1/citas/2
+URL: http://localhost:8086/api/v1/citas/{id}
+📌 Ejemplo: http://localhost:8086/api/v1/citas/2
 
 
 
