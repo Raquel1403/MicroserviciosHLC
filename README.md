@@ -9,7 +9,7 @@ La API corre en `http://localhost:8086/api/v1/citas`
 ### ➕ Crear nuevas citas
 **Método:** `POST`
 
-**URL:** `http://localhost:8086/api/v1/citas/add`
+**URL:** `http://localhost:8086/api/v1/citas`
 
 **Headers:** `Content-Type: application/json`
 
