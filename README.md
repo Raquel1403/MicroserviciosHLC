@@ -139,9 +139,9 @@ Verifica que la respuesta es 200 OK y el JSON de respuesta tiene el ID esperado.
 
 
 
-## 🏥Microservicio de Usuarios
+## Microservicio de Usuarios
 
-Este microservicio gestiona la información de los usuarios dentro del sistema. Permite realizar operaciones **CRUD** sobre los usuarios almacenados en **MongoDB** y maneja la autenticación con **JWT**.
+Este microservicio gestiona la información de los usuarios dentro del sistema. Permite realizar operaciones **CRUD** sobre los usuarios almacenados en **MongoDB** y maneja la autenticación.
 
 ---
 
@@ -156,11 +156,11 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
 📌 **Ejemplo de solicitud (JSON):**
 ```json
 {
-    "id": "1",
+    "id": "789",
     "nombre": "Juan Pérez",
     "correo": "juan.perez@example.com",
     "contraseña": "ContraseñaSegura123",
-    "roles": ["usuario"]
+    "roles": ["paciente"]
 }
 ```
 
@@ -170,7 +170,7 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
     "id": "1",
     "nombre": "Juan Pérez",
     "correo": "juan.perez@example.com",
-    "roles": ["usuario"]
+    "roles": ["paciente"]
 }
 ```
 
