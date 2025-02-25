@@ -10,3 +10,10 @@ data:
     database: usuariosservice_db
     host: mongo_DB # Usa el nombre del contenedor en Docker en lugar de la IP
     port: 27017
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /v3/api-docs

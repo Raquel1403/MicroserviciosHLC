@@ -18,7 +18,7 @@ public interface UsuariosAPI {
     ResponseEntity deleteUsuario(String id);
     ResponseEntity deleteAllUsuarios();
 
-    Optional<UsuariosDto> login(String correo, String contraseña);
+    /*Optional<UsuariosDto> login(String correo, String contraseña);
 
     Optional<String> getEspecialidadByUsuarioId(String id);
     List<String> getHistorialCitasByUsuarioId(String id);
@@ -34,5 +34,5 @@ public interface UsuariosAPI {
     List<String> visualizarAgenda(String psicologoId);
 
     // Verificar rol del usuario
-    String verificarRol(String id);
+    String verificarRol(String id);*/
 }

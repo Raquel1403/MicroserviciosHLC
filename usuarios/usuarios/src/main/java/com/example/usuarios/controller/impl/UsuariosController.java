@@ -72,13 +72,13 @@ public class UsuariosController implements UsuariosAPI {
         return usuariosService.deleteAllUsuarios();
     }
 
-    @Override
+    /*@Override
     @PostMapping("/usuarios/login")
     public Optional<UsuariosDto> login(@RequestParam String correo, @RequestParam String contraseña) {
         return usuariosService.login(correo, contraseña);
-    }
+    }*/
 
-    @Override
+    /*@Override
     @GetMapping("/usuarios/especialidad/{id}")
     public Optional<String> getEspecialidadByUsuarioId(@PathVariable String id) {
         return usuariosService.getEspecialidadByUsuarioId(id);
@@ -130,5 +130,5 @@ public class UsuariosController implements UsuariosAPI {
     @GetMapping("/usuarios/{psicologoId}/visualizar-agenda")
     public List<String> visualizarAgenda(@PathVariable String psicologoId) {
         return usuariosService.visualizarAgenda(psicologoId);
-    }
+    }*/
 }
