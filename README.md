@@ -137,6 +137,182 @@ Simula `POST /api/v1/citas` enviando un JSON con los datos de la cita.
 Mockea citaService.save() para devolver la cita creada.
 Verifica que la respuesta es 200 OK y el JSON de respuesta tiene el ID esperado.
 
+
+
+## Microservicio de Usuarios
+
+Este microservicio gestiona la información de los usuarios dentro del sistema. Permite realizar operaciones **CRUD** sobre los usuarios almacenados en **MongoDB**.
+
+---
+
+## 💽 **Endpoints de la API**
+📍 **Base URL:** `http://localhost:8080/api/v1/usuarios`
+
+### ➕ **Crear un nuevo usuario**
+- **Método:** `POST`
+- **URL:** `http://localhost:8080/api/v1/usuarios`
+- **Headers:** `Content-Type: application/json`
+
+📌 **Ejemplo de solicitud (JSON):**
+```json
+{
+    "id": "789",
+    "nombre": "Juan Pérez",
+    "correo": "juan.perez@example.com",
+    "contraseña": "ContraseñaSegura123",
+    "roles": ["paciente"]
+}
+```
+
+📌 **Ejemplo de respuesta (JSON):**
+```json
+{
+    "id": "789",
+    "nombre": "Juan Pérez",
+    "correo": "juan.perez@example.com",
+    "roles": ["paciente"]
+}
+```
+
+---
+
+### 🔍 **Obtener todos los usuarios**
+- **Método:** `GET`
+- **URL:** `http://localhost:8080/api/v1/usuarios`
+
+📌 **Ejemplo de respuesta (JSON):**
+```json
+[
+    {
+        "id": "1",
+        "nombre": "Juan Pérez",
+        "correo": "juan.perez@example.com",
+        "roles": ["usuario"]
+    },
+    {
+        "id": "2",
+        "nombre": "María López",
+        "correo": "maria.lopez@example.com",
+        "roles": ["admin"]
+    }
+]
+```
+
+---
+
+### 🔍 **Obtener un usuario por ID**
+- **Método:** `GET`
+- **URL:** `http://localhost:8080/api/v1/usuarios/{id}`
+
+📌 **Ejemplo:** `http://localhost:8080/api/v1/usuarios/1`
+
+📌 **Ejemplo de respuesta (JSON):**
+```json
+{
+    "id": "1",
+    "nombre": "Juan Pérez",
+    "correo": "juan.perez@example.com",
+    "roles": ["usuario"]
+}
+```
+
+---
+
+### ✏️ **Actualizar un usuario**
+- **Método:** `PUT`
+- **URL:** `http://localhost:8080/api/v1/usuarios/{id}`
+- **Headers:** `Content-Type: application/json`
+
+📌 **Ejemplo:** `http://localhost:8080/api/v1/usuarios/1`
+
+📌 **Ejemplo de solicitud (JSON):**
+```json
+{
+    "id": "1",
+    "nombre": "Juan Pérez Actualizado",
+    "correo": "juan.perez@example.com",
+    "contraseña": "NuevaContraseñaSegura456",
+    "roles": ["admin"]
+}
+```
+
+---
+
+### 🗑️ **Eliminar un usuario**
+- **Método:** `DELETE`
+- **URL:** `http://localhost:8080/api/v1/usuarios/{id}`
+
+📌 **Ejemplo:** `http://localhost:8080/api/v1/usuarios/1`
+
+---
+
+## 🔐 **Autenticación y Seguridad**
+
+Este microservicio utiliza **JWT (JSON Web Token)** para la autenticación de usuarios. Para acceder a los endpoints protegidos, es necesario incluir un **token JWT** en la cabecera de las solicitudes.
+
+### 🔑 **Iniciar sesión y obtener un token**
+- **Método:** `POST`
+- **URL:** `http://localhost:8080/api/v1/auth/login`
+
+📌 **Ejemplo de solicitud (JSON):**
+```json
+{
+    "correo": "juan.perez@example.com",
+    "contraseña": "ContraseñaSegura123"
+}
+```
+
+📌 **Ejemplo de respuesta (JSON):**
+```json
+{
+    "token": "eyJhbGciOiJIUzI1..."
+}
+```
+
+Para acceder a los endpoints protegidos, incluir el token en la cabecera de las peticiones:
+```
+Authorization: Bearer <TOKEN_RECIBIDO>
+```
+
+---
+
+## 🔎 **Documentación con Swagger**
+
+Este microservicio expone una **documentación interactiva** con **Swagger** para facilitar su exploración y prueba.
+📍 **URL:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+---
+
+## 🧪 **Pruebas**
+
+Este microservicio cuenta con **tests automatizados** utilizando **JUnit 5, Mockito y Spring MockMvc**.
+
+📌 **Pruebas incluidas:**
+
+- **testObtenerTodosLosUsuarios()**: Simula una petición `GET /api/v1/usuarios` y verifica que el estado sea `200 OK` y la respuesta sea un JSON válido.
+- **testObtenerUsuarioPorId()**: Simula `GET /api/v1/usuarios/{id}` para validar la respuesta correcta.
+- **testCrearUsuario()**: Simula `POST /api/v1/usuarios`, verifica el estado `201 Created` y comprueba que el usuario devuelto tiene el ID correcto.
+- **testEliminarUsuario()**: Simula `DELETE /api/v1/usuarios/{id}` y confirma que el estado HTTP sea `200 OK`.
+
+---
+
+## 🚀 **Despliegue**
+
+Para ejecutar el microservicio localmente:
+```bash
+mvn spring-boot:run
+```
+
+Si se usa **Docker**, el microservicio puede ejecutarse con:
+```bash
+docker build -t microservicio-usuarios .
+docker run -p 8080:8080 microservicio-usuarios
+```
+
+Este microservicio es parte del sistema **MicroserviciosHLC**, diseñado para una arquitectura modular y escalable.
+
+
+
 **`testEliminarCita()`**
 
 Simula `DELETE /api/v1/citas/1`.
