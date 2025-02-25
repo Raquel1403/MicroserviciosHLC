@@ -187,7 +187,7 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
         "id": "1",
         "nombre": "Juan Pérez",
         "correo": "juan.perez@example.com",
-        "roles": ["usuario"]
+        "roles": ["paciente"]
     },
     {
         "id": "2",
@@ -212,7 +212,7 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
     "id": "1",
     "nombre": "Juan Pérez",
     "correo": "juan.perez@example.com",
-    "roles": ["usuario"]
+    "roles": ["paciente"]
 }
 ```
 
