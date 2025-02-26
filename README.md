@@ -1,7 +1,12 @@
 # MicroserviciosHLC
 
-## Microservicio de Citas
-Este microservicio gestiona las citas de pacientes con psicólogos. Permite realizar operaciones CRUD sobre las citas almacenadas en MongoDB.
+**📚 Descripción del Proyecto**
+Este proyecto se compone de dos microservicios diseñados para una gestión eficiente de citas psicológicas y la información de los usuarios:
+- Microservicio de Citas: Se encarga de la administración de las citas entre pacientes y psicólogos, permitiendo operaciones como la creación, modificación y cancelación de citas.
+- Microservicio de Usuarios: Gestiona la información de los usuarios dentro del sistema, incluyendo pacientes, psicólogos y administradores, asegurando un manejo seguro y organizado de sus datos.
+
+
+# Microservicio de Citas
 
 ## 💽 Endpoints de la API
 La API corre en `http://localhost:8086/api/v1/citas`
@@ -205,7 +210,7 @@ Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
 Comprueba que la respuesta es 200 OK.
 
 
-## Microservicio de Usuarios
+# Microservicio de Usuarios
 
 Este microservicio gestiona la información de los usuarios dentro del sistema. Permite realizar operaciones **CRUD** sobre los usuarios almacenados en **MongoDB**.
 
