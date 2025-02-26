@@ -162,22 +162,19 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
 ```json
 {
     "id": "789",
-    "nombre": "Juan Pérez",
-    "correo": "juan.perez@example.com",
-    "contraseña": "ContraseñaSegura123",
-    "roles": ["paciente"]
+    "correo": "juan.paciente@mail.com",
+    "contraseña": "password123",
+    "rol": "paciente",
+    "nombre": "Juan",
+    "apellidos": "Pérez",
+    "telefono": "612345678",
+    "fechaNacimiento": "1990-05-10",
+    "administrador": false,
+    "especialidad": null,
+    "historialCitas": []
 }
 ```
 
-📌 **Ejemplo de respuesta (JSON):**
-```json
-{
-    "id": "789",
-    "nombre": "Juan Pérez",
-    "correo": "juan.perez@example.com",
-    "roles": ["paciente"]
-}
-```
 
 ---
 
