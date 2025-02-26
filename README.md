@@ -296,21 +296,6 @@ Este microservicio cuenta con **tests automatizados** utilizando **JUnit 5, Mock
 
 ---
 
-## 🚀 **Despliegue**
-
-Para ejecutar el microservicio localmente:
-```bash
-mvn spring-boot:run
-```
-
-Si se usa **Docker**, el microservicio puede ejecutarse con:
-```bash
-docker build -t microservicio-usuarios .
-docker run -p 8080:8080 microservicio-usuarios
-```
-
-Este microservicio es parte del sistema **MicroserviciosHLC**, diseñado para una arquitectura modular y escalable.
-
 
 
 **`testEliminarCita()`**
