@@ -137,6 +137,11 @@ Simula `POST /api/v1/citas` enviando un JSON con los datos de la cita.
 Mockea citaService.save() para devolver la cita creada.
 Verifica que la respuesta es 200 OK y el JSON de respuesta tiene el ID esperado.
 
+**`testEliminarCita()`**
+
+Simula `DELETE /api/v1/citas/1`.
+Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
+Comprueba que la respuesta es 200 OK.
 
 
 ## Microservicio de Usuarios
@@ -296,10 +301,3 @@ Este microservicio cuenta con **tests automatizados** utilizando **JUnit 5, Mock
 
 ---
 
-
-
-**`testEliminarCita()`**
-
-Simula `DELETE /api/v1/citas/1`.
-Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
-Comprueba que la respuesta es 200 OK.
