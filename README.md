@@ -111,6 +111,39 @@ La API corre en `http://localhost:8086/api/v1/citas`
 ### Swagger
 `http://localhost:8086/swagger-ui/index.html`
 
+Para poder usar Swagger en nuestro microservicio hemos tenido que configurar distintas cosas como:
+
+**1. Agregar dependencias**:
+
+`<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.5.0</version>
+</dependency>`
+
+**2. Modificación de application.yml**:
+   
+`springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /v3/api-docs`
+    
+**3. Asegurar versión de Java** (versión estable como la 21, con la 23 da errores)
+
+`<properties>
+		<java.version>21</java.version>
+	</properties>`
+ 
+**4. Añadir paquete config con la clase SwaggerConfig**
+
+**5. En nuestra clase CitaController hemos añadido algunas anotaciones para mejor visualización**:
+
+Encima de public class CitaController, hemos añadido esta línea: `@Tag(name = "Citas", description = "Operaciones sobre citas psicológicas")`
+Y encima de cada método hemos puesto la anotación @Operation(summary = ...)
+
 ---
 
 ### Test
