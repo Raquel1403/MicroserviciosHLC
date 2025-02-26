@@ -251,36 +251,6 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
 
 ---
 
-## 🔐 **Autenticación y Seguridad**
-
-Este microservicio utiliza **JWT (JSON Web Token)** para la autenticación de usuarios. Para acceder a los endpoints protegidos, es necesario incluir un **token JWT** en la cabecera de las solicitudes.
-
-### 🔑 **Iniciar sesión y obtener un token**
-- **Método:** `POST`
-- **URL:** `http://localhost:8080/api/v1/auth/login`
-
-📌 **Ejemplo de solicitud (JSON):**
-```json
-{
-    "correo": "juan.perez@example.com",
-    "contraseña": "ContraseñaSegura123"
-}
-```
-
-📌 **Ejemplo de respuesta (JSON):**
-```json
-{
-    "token": "eyJhbGciOiJIUzI1..."
-}
-```
-
-Para acceder a los endpoints protegidos, incluir el token en la cabecera de las peticiones:
-```
-Authorization: Bearer <TOKEN_RECIBIDO>
-```
-
----
-
 ## 🔎 **Documentación con Swagger**
 
 Este microservicio expone una **documentación interactiva** con **Swagger** para facilitar su exploración y prueba.
@@ -288,16 +258,4 @@ Este microservicio expone una **documentación interactiva** con **Swagger** par
 
 ---
 
-## 🧪 **Pruebas**
-
-Este microservicio cuenta con **tests automatizados** utilizando **JUnit 5, Mockito y Spring MockMvc**.
-
-📌 **Pruebas incluidas:**
-
-- **testObtenerTodosLosUsuarios()**: Simula una petición `GET /api/v1/usuarios` y verifica que el estado sea `200 OK` y la respuesta sea un JSON válido.
-- **testObtenerUsuarioPorId()**: Simula `GET /api/v1/usuarios/{id}` para validar la respuesta correcta.
-- **testCrearUsuario()**: Simula `POST /api/v1/usuarios`, verifica el estado `201 Created` y comprueba que el usuario devuelto tiene el ID correcto.
-- **testEliminarUsuario()**: Simula `DELETE /api/v1/usuarios/{id}` y confirma que el estado HTTP sea `200 OK`.
-
----
 
