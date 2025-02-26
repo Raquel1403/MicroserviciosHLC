@@ -1,7 +1,12 @@
 # MicroserviciosHLC
 
-## Microservicio de Citas
-Este microservicio gestiona las citas de pacientes con psicólogos. Permite realizar operaciones CRUD sobre las citas almacenadas en MongoDB.
+**📚 Descripción del Proyecto**
+Este proyecto se compone de dos microservicios diseñados para una gestión eficiente de citas psicológicas y la información de los usuarios:
+- Microservicio de Citas: Se encarga de la administración de las citas entre pacientes y psicólogos, permitiendo operaciones como la creación, modificación y cancelación de citas.
+- Microservicio de Usuarios: Gestiona la información de los usuarios dentro del sistema, incluyendo pacientes, psicólogos y administradores, asegurando un manejo seguro y organizado de sus datos.
+
+
+# Microservicio de Citas
 
 ## 💽 Endpoints de la API
 La API corre en `http://localhost:8086/api/v1/citas`
@@ -108,10 +113,71 @@ La API corre en `http://localhost:8086/api/v1/citas`
 
 ---
 
-### Swagger
-`http://localhost:8086/swagger-ui/index.html`
+### 📌 Swagger
 
----
+Puedes acceder a la interfaz de Swagger desde:  
+[`http://localhost:8086/swagger-ui/index.html`](http://localhost:8086/swagger-ui/index.html)  
+
+Para habilitar Swagger en nuestro microservicio, hemos realizado las siguientes configuraciones:
+
+**⚙️ 1. Agregar dependencias**  
+
+En el archivo `pom.xml`, añadimos la dependencia:  
+
+```xml
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.5.0</version>
+</dependency>
+```
+
+**🛠️ 2. Modificación de `application.yml`**  
+
+Configuramos Swagger en el archivo `application.yml` para habilitar la UI y los endpoints de la API:
+
+```yaml
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+```
+
+**☕ 3. Asegurar versión de Java**  
+
+Es recomendable usar **Java 21**, ya que Java 23 presenta errores con algunas dependencias.  
+Configuramos la versión en `pom.xml`:
+
+```xml
+<properties>
+    <java.version>21</java.version>
+</properties>
+```
+
+**📁 4. Añadir configuración en el paquete `config`**  
+
+Creamos la clase **SwaggerConfig** en el paquete `config` para una configuración adicional.
+
+**📝 5. Anotaciones en `CitaController`**  
+
+Para mejorar la documentación en Swagger, añadimos anotaciones en nuestra clase **CitaController**:
+
+- **Encima de la clase** `CitaController`, agregamos:  
+
+  ```java
+  @Tag(name = "Citas", description = "Operaciones sobre citas psicológicas")
+  ```
+
+- **Encima de cada método**, usamos:  
+
+  ```java
+  @Operation(summary = "Descripción del método...")
+  ```
+
+--- 
 
 ### Test
 Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc para simular peticiones HTTP y validar respuestas sin necesidad de un servidor real.
@@ -144,7 +210,7 @@ Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
 Comprueba que la respuesta es 200 OK.
 
 
-## Microservicio de Usuarios
+# Microservicio de Usuarios
 
 Este microservicio gestiona la información de los usuarios dentro del sistema. Permite realizar operaciones **CRUD** sobre los usuarios almacenados en **MongoDB**.
 
