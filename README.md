@@ -172,6 +172,8 @@ Para mejorar la documentación en Swagger, añadimos anotaciones en nuestra clas
   @Operation(summary = "Descripción del método...")
   ```
 
+--- 
+
 ### Test
 Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc para simular peticiones HTTP y validar respuestas sin necesidad de un servidor real.
 
