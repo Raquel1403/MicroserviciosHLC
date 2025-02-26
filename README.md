@@ -117,7 +117,7 @@ Para habilitar Swagger en nuestro microservicio, hemos realizado las siguientes 
 
 ---
 
-## ⚙️ 1. Agregar dependencias  
+**⚙️ 1. Agregar dependencias**  
 
 En el archivo `pom.xml`, añadimos la dependencia:  
 
@@ -131,7 +131,7 @@ En el archivo `pom.xml`, añadimos la dependencia:
 
 ---
 
-## 🛠️ 2. Modificación de `application.yml`  
+**🛠️ 2. Modificación de `application.yml`**  
 
 Configuramos Swagger en el archivo `application.yml` para habilitar la UI y los endpoints de la API:
 
@@ -147,7 +147,7 @@ springdoc:
 
 ---
 
-## ☕ 3. Asegurar versión de Java  
+**☕ 3. Asegurar versión de Java**  
 
 Es recomendable usar **Java 21**, ya que Java 23 presenta errores con algunas dependencias.  
 Configuramos la versión en `pom.xml`:
@@ -160,13 +160,13 @@ Configuramos la versión en `pom.xml`:
 
 ---
 
-## 📁 4. Añadir configuración en el paquete `config`  
+**📁 4. Añadir configuración en el paquete `config`**  
 
 Creamos la clase **SwaggerConfig** en el paquete `config` para una configuración adicional.
 
 ---
 
-## 📝 5. Anotaciones en `CitaController`  
+**📝 5. Anotaciones en `CitaController`**  
 
 Para mejorar la documentación en Swagger, añadimos anotaciones en nuestra clase **CitaController**:
 
