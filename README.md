@@ -115,11 +115,11 @@ Para poder usar Swagger en nuestro microservicio hemos tenido que configurar dis
 
 **1. Agregar dependencias**:
 
-`<dependency>
+```<dependency>
     <groupId>org.springdoc</groupId>
     <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
     <version>2.5.0</version>
-</dependency>`
+</dependency>```
 
 **2. Modificación de application.yml**:
    
