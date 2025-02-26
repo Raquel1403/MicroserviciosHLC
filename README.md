@@ -151,11 +151,11 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
 ---
 
 ## 💽 **Endpoints de la API**
-📍 **Base URL:** `http://localhost:8080/api/v1/usuarios`
+📍 **Base URL:** `http://localhost:8085/api/v1/usuarios`
 
 ### ➕ **Crear un nuevo usuario**
 - **Método:** `POST`
-- **URL:** `http://localhost:8080/api/v1/usuarios`
+- **URL:** `http://localhost:8085/api/v1/usuarios`
 - **Headers:** `Content-Type: application/json`
 
 📌 **Ejemplo de solicitud (JSON):**
@@ -180,22 +180,49 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
 
 ### 🔍 **Obtener todos los usuarios**
 - **Método:** `GET`
-- **URL:** `http://localhost:8080/api/v1/usuarios`
+- **URL:** `http://localhost:8085/api/v1/usuarios`
 
 📌 **Ejemplo de respuesta (JSON):**
 ```json
 [
     {
-        "id": "1",
-        "nombre": "Juan Pérez",
-        "correo": "juan.perez@example.com",
-        "roles": ["paciente"]
+        "id": "789",
+        "correo": "juan.paciente@mail.com",
+        "contraseña": "password123",
+        "rol": "paciente",
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "telefono": "612345678",
+        "fechaNacimiento": "1990-05-10",
+        "administrador": false,
+        "especialidad": null,
+        "historialCitas": []
     },
     {
-        "id": "2",
-        "nombre": "María López",
-        "correo": "maria.lopez@example.com",
-        "roles": ["admin"]
+        "id": "654",
+        "correo": "ana.psicologo@mail.com",
+        "contraseña": "securePass456",
+        "rol": "psicologo",
+        "nombre": "Ana",
+        "apellidos": "Gómez",
+        "telefono": "623456789",
+        "fechaNacimiento": "1985-10-22",
+        "administrador": false,
+        "especialidad": "Terapia Cognitiva",
+        "historialCitas": null
+    },
+    {
+        "id": "123",
+        "correo": "admin@empresa.com",
+        "contraseña": "admin123",
+        "rol": "administrador",
+        "nombre": "Carlos",
+        "apellidos": "Martínez",
+        "telefono": "612345001",
+        "fechaNacimiento": "1980-02-15",
+        "administrador": true,
+        "especialidad": null,
+        "historialCitas": null
     }
 ]
 ```
@@ -204,54 +231,75 @@ Este microservicio gestiona la información de los usuarios dentro del sistema. 
 
 ### 🔍 **Obtener un usuario por ID**
 - **Método:** `GET`
-- **URL:** `http://localhost:8080/api/v1/usuarios/{id}`
+- **URL:** `http://localhost:8085/api/v1/usuarios/{id}`
 
-📌 **Ejemplo:** `http://localhost:8080/api/v1/usuarios/1`
+📌 **Ejemplo:** `http://localhost:8085/api/v1/usuarios/789`
 
 📌 **Ejemplo de respuesta (JSON):**
 ```json
 {
-    "id": "1",
-    "nombre": "Juan Pérez",
-    "correo": "juan.perez@example.com",
-    "roles": ["paciente"]
-}
+        "id": "789",
+        "correo": "juan.paciente@mail.com",
+        "contraseña": "password123",
+        "rol": "paciente",
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "telefono": "612345678",
+        "fechaNacimiento": "1990-05-10",
+        "administrador": false,
+        "especialidad": null,
+        "historialCitas": []
+    }
 ```
 
 ---
 
 ### ✏️ **Actualizar un usuario**
 - **Método:** `PUT`
-- **URL:** `http://localhost:8080/api/v1/usuarios/{id}`
+- **URL:** `http://localhost:8085/api/v1/usuarios/{id}`
 - **Headers:** `Content-Type: application/json`
 
-📌 **Ejemplo:** `http://localhost:8080/api/v1/usuarios/1`
+📌 **Ejemplo:** `http://localhost:8085/api/v1/usuarios/789`
 
 📌 **Ejemplo de solicitud (JSON):**
 ```json
 {
-    "id": "1",
-    "nombre": "Juan Pérez Actualizado",
-    "correo": "juan.perez@example.com",
-    "contraseña": "NuevaContraseñaSegura456",
-    "roles": ["admin"]
-}
+        "id": "789",
+        "correo": "juan.paciente@mail.com",
+        "contraseña": "password123",
+        "rol": "paciente",
+        "nombre": "María",
+        "apellidos": "Pérez",
+        "telefono": "612345678",
+        "fechaNacimiento": "1990-05-10",
+        "administrador": false,
+        "especialidad": null,
+        "historialCitas": []
+    }
 ```
 
 ---
 
 ### 🗑️ **Eliminar un usuario**
 - **Método:** `DELETE`
-- **URL:** `http://localhost:8080/api/v1/usuarios/{id}`
+- **URL:** `http://localhost:8085/api/v1/usuarios/{id}`
 
-📌 **Ejemplo:** `http://localhost:8080/api/v1/usuarios/1`
+📌 **Ejemplo:** `http://localhost:8085/api/v1/usuarios/789`
+
+---
+
+### 🗑️ **Eliminar todos los usuarios**
+- **Método:** `DELETE`
+- **URL:** `http://localhost:8085/api/v1/usuarios`
+
+📌 **Ejemplo:** `http://localhost:8085/api/v1/usuarios`
 
 ---
 
 ## 🔎 **Documentación con Swagger**
 
 Este microservicio expone una **documentación interactiva** con **Swagger** para facilitar su exploración y prueba.
-📍 **URL:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+📍 **URL:** [http://localhost:8085/swagger-ui/index.html](http://localhost:8085/swagger-ui/index.html)
 
 ---
 
