@@ -115,8 +115,6 @@ Puedes acceder a la interfaz de Swagger desde:
 
 Para habilitar Swagger en nuestro microservicio, hemos realizado las siguientes configuraciones:
 
----
-
 **⚙️ 1. Agregar dependencias**  
 
 En el archivo `pom.xml`, añadimos la dependencia:  
@@ -128,8 +126,6 @@ En el archivo `pom.xml`, añadimos la dependencia:
     <version>2.5.0</version>
 </dependency>
 ```
-
----
 
 **🛠️ 2. Modificación de `application.yml`**  
 
@@ -145,8 +141,6 @@ springdoc:
     path: /v3/api-docs
 ```
 
----
-
 **☕ 3. Asegurar versión de Java**  
 
 Es recomendable usar **Java 21**, ya que Java 23 presenta errores con algunas dependencias.  
@@ -158,13 +152,9 @@ Configuramos la versión en `pom.xml`:
 </properties>
 ```
 
----
-
 **📁 4. Añadir configuración en el paquete `config`**  
 
 Creamos la clase **SwaggerConfig** en el paquete `config` para una configuración adicional.
-
----
 
 **📝 5. Anotaciones en `CitaController`**  
 
@@ -181,8 +171,6 @@ Para mejorar la documentación en Swagger, añadimos anotaciones en nuestra clas
   ```java
   @Operation(summary = "Descripción del método...")
   ```
-
----
 
 ### Test
 Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc para simular peticiones HTTP y validar respuestas sin necesidad de un servidor real.
