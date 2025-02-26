@@ -146,6 +146,82 @@ Y encima de cada método hemos puesto la anotación @Operation(summary = ...)
 
 ---
 
+### 📌 Swagger
+
+Puedes acceder a la interfaz de Swagger desde:  
+[`http://localhost:8086/swagger-ui/index.html`](http://localhost:8086/swagger-ui/index.html)  
+
+Para habilitar Swagger en nuestro microservicio, hemos realizado las siguientes configuraciones:
+
+---
+
+## ⚙️ 1. Agregar dependencias  
+
+En el archivo `pom.xml`, añadimos la dependencia:  
+
+```xml
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.5.0</version>
+</dependency>
+```
+
+---
+
+## 🛠️ 2. Modificación de `application.yml`  
+
+Configuramos Swagger en el archivo `application.yml` para habilitar la UI y los endpoints de la API:
+
+```yaml
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+```
+
+---
+
+## ☕ 3. Asegurar versión de Java  
+
+Es recomendable usar **Java 21**, ya que Java 23 presenta errores con algunas dependencias.  
+Configuramos la versión en `pom.xml`:
+
+```xml
+<properties>
+    <java.version>21</java.version>
+</properties>
+```
+
+---
+
+## 📁 4. Añadir configuración en el paquete `config`  
+
+Creamos la clase **SwaggerConfig** en el paquete `config` para una configuración adicional.
+
+---
+
+## 📝 5. Anotaciones en `CitaController`  
+
+Para mejorar la documentación en Swagger, añadimos anotaciones en nuestra clase **CitaController**:
+
+- **Encima de la clase** `CitaController`, agregamos:  
+
+  ```java
+  @Tag(name = "Citas", description = "Operaciones sobre citas psicológicas")
+  ```
+
+- **Encima de cada método**, usamos:  
+
+  ```java
+  @Operation(summary = "Descripción del método...")
+  ```
+
+---
+
 ### Test
 Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc para simular peticiones HTTP y validar respuestas sin necesidad de un servidor real.
 
