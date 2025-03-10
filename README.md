@@ -190,8 +190,11 @@ Cada prueba verifica un endpoint específico del controlador CitaController:
 Antes de ejecutar cada prueba, inicializamos MockMvc, que nos permite simular peticiones HTTP hacia nuestro controlador sin necesidad de levantar la aplicación completa.
 
 @BeforeEach
+
 void setUp() {
+
     mockMvc = MockMvcBuilders.standaloneSetup(citaController).build();
+    
 }
 
 📝 **Pruebas Implementadas**
