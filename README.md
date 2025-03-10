@@ -227,6 +227,7 @@ void testObtenerTodasLasCitas() throws Exception {
 
 ✅ verify(citaService, times(1)).findAll(); → Verificamos que findAll() se llamó exactamente una vez.
 
+
 2️⃣ Obtener una Cita por ID
 
 📍 Endpoint: GET /api/v1/citas/{id}
@@ -253,6 +254,7 @@ void testObtenerCitaPorId() throws Exception {
 ✅ mockMvc.perform(get("/api/v1/citas/1")) → Hacemos una petición GET con un ID específico.
 
 ✅ .andExpect(jsonPath("$.id").value("1")) → Validamos que el JSON de respuesta tiene el ID correcto.
+
 
 3️⃣ Crear una Nueva Cita
 
@@ -297,6 +299,7 @@ void testCrearCita() throws Exception {
 
 ✅ .andExpect(jsonPath("$.id").value("1")) → Validamos que el JSON devuelto tiene el ID correcto.
 
+
 4️⃣ Eliminar una Cita
 
 📍 Endpoint: DELETE /api/v1/citas/{id}
@@ -321,7 +324,7 @@ void testEliminarCita() throws Exception {
 
 
 📌 Ejecución de Pruebas:
-Para ejecutar las pruebas, usa el siguiente comando en el terminal:
+Para ejecutar las pruebas, usamos el siguiente comando:
 
 ```mvn test```
 
