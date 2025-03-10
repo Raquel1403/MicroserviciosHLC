@@ -185,30 +185,117 @@ Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc p
 📌 **¿Qué hacen estas pruebas?**
 Cada prueba verifica un endpoint específico del controlador CitaController:
 
-**`testObtenerTodasLasCitas()`**
+📌 Configuración Inicial (@BeforeEach)
 
-Simula una petición `GET /api/v1/citas`.
-Mockea citaService.findAll() para devolver una lista vacía.
-Verifica que el estado HTTP es 200 OK y la respuesta es [] (JSON vacío).
+Antes de ejecutar cada prueba, inicializamos MockMvc, que nos permite simular peticiones HTTP hacia nuestro controlador sin necesidad de levantar la aplicación completa.
 
-**`testObtenerCitaPorId()`**
+@BeforeEach
+void setUp() {
+    mockMvc = MockMvcBuilders.standaloneSetup(citaController).build();
+}
 
-Simula `GET /api/v1/citas/1`.
-Mockea citaService.findById("1") para devolver una cita específica.
-Comprueba que el estado es 200 OK y que la cita tiene el ID correcto.
+📝 Pruebas Implementadas
 
-**`testCrearCita()`**
+1️⃣ Obtener Todas las Citas
 
-Simula `POST /api/v1/citas` enviando un JSON con los datos de la cita.
-Mockea citaService.save() para devolver la cita creada.
-Verifica que la respuesta es 200 OK y el JSON de respuesta tiene el ID esperado.
+📍 Endpoint: GET /api/v1/citas
 
-**`testEliminarCita()`**
+@Test
+void testObtenerTodasLasCitas() throws Exception {
+    when(citaService.findAll()).thenReturn(Collections.emptyList());
 
-Simula `DELETE /api/v1/citas/1`.
-Mockea citaService.deleteById("1") para devolver ResponseEntity.ok().
-Comprueba que la respuesta es 200 OK.
+    mockMvc.perform(get("/api/v1/citas"))
+            .andExpect(status().isOk())
+            .andExpect(content().json("[]"));
 
+    verify(citaService, times(1)).findAll();
+}
+
+✅ Simulamos una llamada al servicio findAll() que devuelve una lista vacía.
+✅ Verificamos que la respuesta tiene código 200 OK y devuelve un JSON vacío ([]).
+✅ Comprobamos que el servicio fue llamado una sola vez.
+
+2️⃣ Obtener una Cita por ID
+
+📍 Endpoint: GET /api/v1/citas/{id}
+
+@Test
+void testObtenerCitaPorId() throws Exception {
+    CitaDto cita = new CitaDto("1", "123", "456", new Date(), LocalTime.of(14, 30), "pendiente", "Consulta", "Terapia", Collections.emptyList());
+    when(citaService.findById("1")).thenReturn(Optional.of(cita));
+
+    mockMvc.perform(get("/api/v1/citas/1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id").value("1"));
+
+    verify(citaService, times(1)).findById("1");
+}
+
+✅ Simulamos que findById("1") devuelve una cita existente.
+✅ Verificamos que la respuesta es 200 OK y que el JSON contiene el id: "1".
+✅ Confirmamos que el servicio fue llamado una sola vez.
+
+3️⃣ Crear una Nueva Cita
+
+📍 Endpoint: POST /api/v1/citas
+
+@Test
+void testCrearCita() throws Exception {
+    String citaJson = """
+            {
+                "id": "1",
+                "pacienteID": "123",
+                "psicologoID": "456",
+                "fecha": "2025-03-01",
+                "hora": "14:30",
+                "estado": "pendiente",
+                "mensaje": "Consulta",
+                "especialidad": "Terapia",
+                "notificacionesEnviadas": []
+            }
+            """;
+
+    CitaDto cita = new CitaDto("1", "123", "456", new Date(), LocalTime.of(14, 30), "pendiente", "Consulta", "Terapia", Collections.emptyList());
+
+    when(citaService.save(any())).thenReturn(cita);
+
+    mockMvc.perform(post("/api/v1/citas")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(citaJson))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id").value("1"));
+
+    verify(citaService, times(1)).save(any());
+}
+
+✅ Simulamos que el servicio guarda la cita correctamente.
+✅ Enviamos un JSON con los datos de la cita.
+✅ Verificamos que la respuesta es 200 OK y el JSON contiene el id: "1".
+✅ Confirmamos que save(any()) se llamó una sola vez.
+
+4️⃣ Eliminar una Cita
+
+📍 Endpoint: DELETE /api/v1/citas/{id}
+
+@Test
+void testEliminarCita() throws Exception {
+    when(citaService.deleteById("1")).thenReturn(ResponseEntity.ok().build());
+
+    mockMvc.perform(delete("/api/v1/citas/1"))
+            .andExpect(status().isOk());
+
+    verify(citaService, times(1)).deleteById("1");
+}
+
+✅ Simulamos que la cita se elimina correctamente.
+✅ Enviamos una petición DELETE y verificamos que la respuesta es 200 OK.
+✅ Confirmamos que deleteById("1") se llamó solo una vez.
+
+
+📌 Ejecución de Pruebas:
+Para ejecutar las pruebas, usa el siguiente comando en el terminal:
+
+```mvn test```
 
 # Microservicio de Usuarios
 
