@@ -196,6 +196,8 @@ void setUp() {
     mockMvc = MockMvcBuilders.standaloneSetup(citaController).build();
 }
 
+Aquí, standaloneSetup(citaController) crea una instancia del controlador de forma aislada.
+
 📝 **Pruebas Implementadas**
 
 1️⃣ Obtener Todas las Citas
@@ -215,11 +217,15 @@ void testObtenerTodasLasCitas() throws Exception {
     verify(citaService, times(1)).findAll();
 }
 
-✅ Simulamos una llamada al servicio findAll() que devuelve una lista vacía.
+✅ when(citaService.findAll()) → Simulamos que el servicio devuelve una lista vacía.
 
-✅ Verificamos que la respuesta tiene código 200 OK y devuelve un JSON vacío ([]).
+✅ mockMvc.perform(get("/api/v1/citas")) → Simulamos una petición GET.
 
-✅ Comprobamos que el servicio fue llamado una sola vez.
+✅ .andExpect(status().isOk()) → Esperamos una respuesta 200 OK.
+
+✅ .andExpect(content().json("[]")) → Comprobamos que el JSON devuelto es una lista vacía.
+
+✅ verify(citaService, times(1)).findAll(); → Verificamos que findAll() se llamó exactamente una vez.
 
 2️⃣ Obtener una Cita por ID
 
@@ -242,11 +248,11 @@ void testObtenerCitaPorId() throws Exception {
     
 }
 
-✅ Simulamos que findById("1") devuelve una cita existente.
+✅ when(citaService.findById("1")) → Simulamos que se encuentra una cita con ID "1".
 
-✅ Verificamos que la respuesta es 200 OK y que el JSON contiene el id: "1".
+✅ mockMvc.perform(get("/api/v1/citas/1")) → Hacemos una petición GET con un ID específico.
 
-✅ Confirmamos que el servicio fue llamado una sola vez.
+✅ .andExpect(jsonPath("$.id").value("1")) → Validamos que el JSON de respuesta tiene el ID correcto.
 
 3️⃣ Crear una Nueva Cita
 
@@ -283,13 +289,13 @@ void testCrearCita() throws Exception {
     verify(citaService, times(1)).save(any());
 }
 
-✅ Simulamos que el servicio guarda la cita correctamente.
+✅ when(citaService.save(any())) → Simulamos que el servicio guarda la cita.
 
-✅ Enviamos un JSON con los datos de la cita.
+✅ mockMvc.perform(post("/api/v1/citas")... → Enviamos una petición POST con un JSON de cita.
 
-✅ Verificamos que la respuesta es 200 OK y el JSON contiene el id: "1".
+✅ .andExpect(status().isOk()) → Verificamos que la respuesta es 200 OK.
 
-✅ Confirmamos que save(any()) se llamó una sola vez.
+✅ .andExpect(jsonPath("$.id").value("1")) → Validamos que el JSON devuelto tiene el ID correcto.
 
 4️⃣ Eliminar una Cita
 
@@ -307,11 +313,11 @@ void testEliminarCita() throws Exception {
     
 }
 
-✅ Simulamos que la cita se elimina correctamente.
+✅ when(citaService.deleteById("1")) → Simulamos que la cita se elimina correctamente.
 
-✅ Enviamos una petición DELETE y verificamos que la respuesta es 200 OK.
+✅ mockMvc.perform(delete("/api/v1/citas/1")) → Hacemos una petición DELETE.
 
-✅ Confirmamos que deleteById("1") se llamó solo una vez.
+✅ .andExpect(status().isOk()) → Comprobamos que devuelve un 200 OK.
 
 
 📌 Ejecución de Pruebas:
