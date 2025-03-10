@@ -185,7 +185,7 @@ Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc p
 📌 **¿Qué hacen estas pruebas?**
 Cada prueba verifica un endpoint específico del controlador CitaController:
 
-📌 Configuración Inicial (@BeforeEach)
+📌 **Configuración Inicial** (@BeforeEach)
 
 Antes de ejecutar cada prueba, inicializamos MockMvc, que nos permite simular peticiones HTTP hacia nuestro controlador sin necesidad de levantar la aplicación completa.
 
@@ -194,7 +194,7 @@ void setUp() {
     mockMvc = MockMvcBuilders.standaloneSetup(citaController).build();
 }
 
-📝 Pruebas Implementadas
+📝 **Pruebas Implementadas**
 
 1️⃣ Obtener Todas las Citas
 
@@ -212,7 +212,9 @@ void testObtenerTodasLasCitas() throws Exception {
 }
 
 ✅ Simulamos una llamada al servicio findAll() que devuelve una lista vacía.
+
 ✅ Verificamos que la respuesta tiene código 200 OK y devuelve un JSON vacío ([]).
+
 ✅ Comprobamos que el servicio fue llamado una sola vez.
 
 2️⃣ Obtener una Cita por ID
@@ -232,7 +234,9 @@ void testObtenerCitaPorId() throws Exception {
 }
 
 ✅ Simulamos que findById("1") devuelve una cita existente.
+
 ✅ Verificamos que la respuesta es 200 OK y que el JSON contiene el id: "1".
+
 ✅ Confirmamos que el servicio fue llamado una sola vez.
 
 3️⃣ Crear una Nueva Cita
@@ -269,8 +273,11 @@ void testCrearCita() throws Exception {
 }
 
 ✅ Simulamos que el servicio guarda la cita correctamente.
+
 ✅ Enviamos un JSON con los datos de la cita.
+
 ✅ Verificamos que la respuesta es 200 OK y el JSON contiene el id: "1".
+
 ✅ Confirmamos que save(any()) se llamó una sola vez.
 
 4️⃣ Eliminar una Cita
@@ -288,7 +295,9 @@ void testEliminarCita() throws Exception {
 }
 
 ✅ Simulamos que la cita se elimina correctamente.
+
 ✅ Enviamos una petición DELETE y verificamos que la respuesta es 200 OK.
+
 ✅ Confirmamos que deleteById("1") se llamó solo una vez.
 
 
