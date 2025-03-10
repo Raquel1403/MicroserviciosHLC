@@ -223,15 +223,20 @@ void testObtenerTodasLasCitas() throws Exception {
 📍 Endpoint: GET /api/v1/citas/{id}
 
 @Test
+
 void testObtenerCitaPorId() throws Exception {
+
     CitaDto cita = new CitaDto("1", "123", "456", new Date(), LocalTime.of(14, 30), "pendiente", "Consulta", "Terapia", Collections.emptyList());
+    
     when(citaService.findById("1")).thenReturn(Optional.of(cita));
 
     mockMvc.perform(get("/api/v1/citas/1"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.id").value("1"));
+            
 
     verify(citaService, times(1)).findById("1");
+    
 }
 
 ✅ Simulamos que findById("1") devuelve una cita existente.
@@ -245,7 +250,9 @@ void testObtenerCitaPorId() throws Exception {
 📍 Endpoint: POST /api/v1/citas
 
 @Test
+
 void testCrearCita() throws Exception {
+
     String citaJson = """
             {
                 "id": "1",
@@ -287,12 +294,14 @@ void testCrearCita() throws Exception {
 
 @Test
 void testEliminarCita() throws Exception {
+
     when(citaService.deleteById("1")).thenReturn(ResponseEntity.ok().build());
 
     mockMvc.perform(delete("/api/v1/citas/1"))
             .andExpect(status().isOk());
 
     verify(citaService, times(1)).deleteById("1");
+    
 }
 
 ✅ Simulamos que la cita se elimina correctamente.
