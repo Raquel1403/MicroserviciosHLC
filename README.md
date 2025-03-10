@@ -202,7 +202,9 @@ void setUp() {
 📍 Endpoint: GET /api/v1/citas
 
 @Test
+
 void testObtenerTodasLasCitas() throws Exception {
+
     when(citaService.findAll()).thenReturn(Collections.emptyList());
 
     mockMvc.perform(get("/api/v1/citas"))
