@@ -182,7 +182,7 @@ Para mejorar la documentación en Swagger, añadimos anotaciones en nuestra clas
 ### Test
 Añadido tests en CitaControllerTest. Se usa JUnit 5, Mockito y Spring MockMvc para simular peticiones HTTP y validar respuestas sin necesidad de un servidor real.
 
-📌 **¿Qué hacen estas pruebas?**
+**¿Qué hacen estas pruebas?**
 Cada prueba verifica un endpoint específico del controlador CitaController:
 
 📌 **Configuración Inicial** (@BeforeEach)
