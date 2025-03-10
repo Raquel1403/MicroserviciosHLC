@@ -192,9 +192,7 @@ Antes de ejecutar cada prueba, inicializamos MockMvc, que nos permite simular pe
 @BeforeEach
 
 void setUp() {
-
     mockMvc = MockMvcBuilders.standaloneSetup(citaController).build();
-    
 }
 
 📝 **Pruebas Implementadas**
